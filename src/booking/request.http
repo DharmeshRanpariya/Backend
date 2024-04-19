@@ -1,0 +1,12 @@
+### tour Booking
+
+POST http://localhost:8000/booking
+Content-Type: application/json
+
+{
+   "fullName": "abc",
+   "guestSize": 3,
+   "phone": 1234,
+   "price": 100,
+   "bookAt": "hhh"
+}

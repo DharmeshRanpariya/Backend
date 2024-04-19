@@ -1,0 +1,16 @@
+### create Tour
+
+POST http://localhost:8000/tour
+Content-Type: application/json
+
+{
+   "title": "abc",
+   "city": "abc",
+   "address": "abc",
+   "distance": 100,
+   "price": 300,
+   "maxGroupSize": 10,
+   "desc": "abc",
+   "photo": "abc",
+   "featured": false
+}

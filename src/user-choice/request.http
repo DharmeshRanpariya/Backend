@@ -1,0 +1,12 @@
+### create userchoice
+
+POST http://localhost:8000/user-choice
+Content-Type: application/json
+
+{
+   "location": "abc",
+   "days": 3,
+   "people": 3,
+   "price": 12,
+   "discription": "abc"
+}
