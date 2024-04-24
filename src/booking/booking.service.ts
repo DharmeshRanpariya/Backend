@@ -17,7 +17,11 @@ export class BookingService {
   }
 
   findAll() {
-    return `This action returns all booking`;
+    return this.repo.find({
+      relations: {
+        tour: true,
+      }
+    });
   }
 
   findOne(id: number) {

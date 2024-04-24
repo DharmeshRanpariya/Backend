@@ -1,16 +1,21 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Review } from "src/review/entities/review.entity";
+import { Collection, Column, Entity, OneToMany, PrimaryGeneratedColumn,  } from "typeorm";
 
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    username: string;
 
     @Column()
     email: string;
 
     @Column()
     password: string;
+
+    @OneToMany(() => Review, review => review.user)
+    review: Review[];
+
+    @Column()
+    dummy: string;
 }

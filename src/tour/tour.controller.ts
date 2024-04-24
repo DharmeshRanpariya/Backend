@@ -1,9 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { TourService } from './tour.service';
 import { CreateTourDto } from './dto/create-tour.dto';
 import { UpdateTourDto } from './dto/update-tour.dto';
+import { log } from 'console';
 
-@Controller('tour')
+@Controller('tours')
 export class TourController {
   constructor(private readonly tourService: TourService) {}
 
@@ -13,8 +23,18 @@ export class TourController {
   }
 
   @Get()
-  findAll() {
-    return this.tourService.findAll();
+  findAll(@Query('page') page: number) {
+    return this.tourService.findAll(page);
+  }
+
+  @Get('count')
+  getTourCount() {
+    return this.tourService.getTourCount();
+  }
+
+  @Get('getFeatured')
+  getTourCount2() {
+    return this.tourService.getFeatured();
   }
 
   @Get(':id')
@@ -22,7 +42,7 @@ export class TourController {
     return this.tourService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Post(':id')
   update(@Param('id') id: string, @Body() updateTourDto: UpdateTourDto) {
     return this.tourService.update(+id, updateTourDto);
   }

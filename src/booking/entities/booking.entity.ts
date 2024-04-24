@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Tour } from "src/tour/entities/tour.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Booking {
@@ -18,5 +19,8 @@ export class Booking {
     "price": number;
 
     @Column()
-    "bookAt": string;
+    "bookAt": Date;
+
+    @ManyToOne(() => Tour, tour => tour.booking)
+    tour: Tour;
 }

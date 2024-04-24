@@ -1,0 +1,8 @@
+import { ExecutionContext, createParamDecorator } from "@nestjs/common";
+
+export const CureentUser = createParamDecorator(
+    (data: any, context: ExecutionContext) => {
+        const request = context.switchToHttp().getRequest();
+        console.log(request.session.email);
+    }
+)

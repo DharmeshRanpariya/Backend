@@ -6,6 +6,9 @@ export class UserChoice {
     id: number;
 
     @Column()
+    user: string;
+
+    @Column()
     location: string;
 
     @Column()
@@ -19,5 +22,8 @@ export class UserChoice {
 
     @Column()
     discription: string
+
+    @Column()
+    dummy: string
 
 }
