@@ -4,7 +4,21 @@ POST http://localhost:8000/user/register
 Content-Type: application/json
 
 {
-   "username": "hello",
-        "email": "hell0@gmail.com",
+        "username": "Dharmesh",
+        "email": "dharmesh@gmail.com",
+        "password": "123"
+}
+
+### 
+
+POST  http://localhost:8000/user/signin
+Content-Type: application/json
+
+{
+        "email": "dhamo@gmail.com",
         "password": "helloworld"
 }
+
+###
+
+GET http://localhost:8000/user/who

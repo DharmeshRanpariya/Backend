@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Booking } from "src/booking/entities/booking.entity";
+import { Review } from "src/review/entities/review.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Tour {
@@ -31,4 +33,11 @@ export class Tour {
 
     @Column()
     featured: boolean;
+
+    @OneToMany(() => Review, review => review.tour)
+    reviews: Review[];
+
+    @OneToMany(() => Booking, booking => booking.tour)
+    booking: Booking[];
+   
 }

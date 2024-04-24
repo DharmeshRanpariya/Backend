@@ -1,16 +1,24 @@
 ### create Tour
 
-POST http://localhost:8000/tour
+POST http://localhost:8000/tours
 Content-Type: application/json
 
 {
-   "title": "abc",
-   "city": "abc",
-   "address": "abc",
-   "distance": 100,
-   "price": 300,
-   "maxGroupSize": 10,
-   "desc": "abc",
-   "photo": "abc",
-   "featured": false
+  "title": "Beautiful Sunrise, Thailand",
+    "city": "Phuket",
+    "address": "Somewhere in Thailand",
+    "distance": 500,
+    "price": 99,
+    "maxGroupSize": 8,
+    "desc": "this is the description",
+    "photo": "/tour-img04.jpg",
+    "featured": true
 }
+
+###
+
+GET http://localhost:8000/tours?page=1
+
+
+###
+GET http://localhost:8000/tours/true

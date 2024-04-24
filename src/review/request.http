@@ -5,5 +5,9 @@ Content-Type: application/json
 
 {
    "rating": 3,
-   "reviewText": "Good"
+   "reviewText": "Good",
+   "tourId": 2
 }
+
+###
+GET http://localhost:8000/review

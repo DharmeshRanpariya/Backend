@@ -4,6 +4,7 @@ import { UpdateReviewDto } from './dto/update-review.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Review } from './entities/review.entity';
 import { Repository } from 'typeorm';
+import { Tour } from 'src/tour/entities/tour.entity';
 
 @Injectable()
 export class ReviewService {
@@ -17,7 +18,11 @@ export class ReviewService {
   }
 
   findAll() {
-    return `This action returns all review`;
+    return this.repo.find({
+      relations: {
+        tour: true,
+      }
+    });
   }
 
   findOne(id: number) {

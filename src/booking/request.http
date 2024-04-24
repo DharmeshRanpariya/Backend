@@ -8,5 +8,6 @@ Content-Type: application/json
    "guestSize": 3,
    "phone": 1234,
    "price": 100,
-   "bookAt": "hhh"
+   "bookAt": "2024-10-12"
+
 }
