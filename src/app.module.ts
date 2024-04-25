@@ -12,6 +12,12 @@ import { Tour } from './tour/entities/tour.entity';
 import { Review } from './review/entities/review.entity';
 import { Booking } from './booking/entities/booking.entity';
 import { UserChoice } from './user-choice/entities/user-choice.entity';
+import { AuthModule } from './auth/auth.module';
+import { PaymentController } from './payment/payment.controller';
+import { CheckoutController } from './checkout/checkout.controller';
+import { CheckoutService } from './checkout/checkout.service';
+import { PaymentService } from './payment/payment.service';
+import { CheckoutModule } from './checkout/checkout.module';
 
 @Module({
   imports: [ TypeOrmModule.forRoot({
@@ -28,8 +34,10 @@ import { UserChoice } from './user-choice/entities/user-choice.entity';
     TourModule,
     BookingModule,
     ReviewModule,
-    UserChoiceModule],
-  controllers: [AppController],
-  providers: [AppService],
+    UserChoiceModule,
+    AuthModule,
+    CheckoutModule],
+  controllers: [AppController, PaymentController, CheckoutController],
+  providers: [AppService, CheckoutService, PaymentService],
 })
 export class AppModule {}

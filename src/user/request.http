@@ -15,8 +15,8 @@ POST  http://localhost:8000/user/signin
 Content-Type: application/json
 
 {
-        "email": "dhamo@gmail.com",
-        "password": "helloworld"
+        "email": "dharmesh@gmail.com",
+        "password": "123"
 }
 
 ###
