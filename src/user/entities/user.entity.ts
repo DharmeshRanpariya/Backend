@@ -1,3 +1,4 @@
+import { Booking } from "src/booking/entities/booking.entity";
 import { Review } from "src/review/entities/review.entity";
 import { Collection, Column, Entity, OneToMany, PrimaryGeneratedColumn,  } from "typeorm";
 
@@ -16,6 +17,6 @@ export class User {
     @OneToMany(() => Review, review => review.user)
     review: Review[];
 
-    @Column()
-    dummy: string;
+    @OneToMany(() => Booking, booking => booking.user)
+    bookings: Booking[];
 }

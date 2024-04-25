@@ -4,16 +4,13 @@ import { UpdateReviewDto } from './dto/update-review.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Review } from './entities/review.entity';
 import { Repository } from 'typeorm';
-import { Tour } from 'src/tour/entities/tour.entity';
 
 @Injectable()
 export class ReviewService {
-  constructor(
-    @InjectRepository(Review) private repo: Repository<Review>
-  ){}
-  
-  create(createReviewDto: CreateReviewDto) {
-    const review = this.repo.create(createReviewDto);
+  constructor(@InjectRepository(Review) private repo: Repository<Review>) {}
+
+  create(createReviewDto: CreateReviewDto, userId: number) {
+    const review = this.repo.create({ ...createReviewDto, userId });
     return this.repo.save(review);
   }
 
@@ -21,7 +18,7 @@ export class ReviewService {
     return this.repo.find({
       relations: {
         tour: true,
-      }
+      },
     });
   }
 

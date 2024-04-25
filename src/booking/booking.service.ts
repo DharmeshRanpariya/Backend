@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Req } from '@nestjs/common';
 import { CreateBookingDto } from './dto/create-booking.dto';
 import { UpdateBookingDto } from './dto/update-booking.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -11,8 +11,8 @@ export class BookingService {
     @InjectRepository(Booking) private repo: Repository<Booking>
   ){}
 
-  create(createBookingDto: CreateBookingDto) {
-    const booking = this.repo.create(createBookingDto);
+  create(createBookingDto: CreateBookingDto, userId: number) {
+    const booking = this.repo.create({...createBookingDto, userId});
     return this.repo.save(booking);
   }
 
